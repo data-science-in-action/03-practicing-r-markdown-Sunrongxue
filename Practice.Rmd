@@ -1,8 +1,10 @@
 ---
-title: "Approximation of the distribution function of $N(0, 1)$"
+title: "Approximation of the standard normal distribution"
 author: "Sunrongxue"
 date: "2020/3/25"
 output:
+  pdf_document:
+         latex_engine: xelatex
   html_document:
     df_print: paged
 ---
@@ -18,14 +20,14 @@ Monte Carlo method is also known as Random Sampling method or Statistical expert
 
 The equation for the standard normal distribution $N(0, 1)$ is 
 
-$$Phi(t) = \int_{- \infty}^t \frac{1}{\sqrt{2\pi}} e^{-y^2 / 2}dy$$
+$$Phi(t)=\int_{-\infty}^t\frac{1}{\sqrt{2\pi}} e^{-y^2/2}dy$$
 ### 2.2 The Monte Carlo method
 
 The equation for the Monte Carlo method is 
 
-$$\hat\Phi(t) = \frac{1}{n} \sum_{i=1}^n I(X_i \le t)$$
-where $X_i$ is a random sample from $N(0, 1)$, $I(\cdot)$ is the indicator function.
-Then, experiment with the approximation at $n \in \{10^2, 10^3, 10^4\}$ at $t \in \{0.0, 0.67, 0.84, 1.28, 1.65, 2.32, 2.58, 3.09, 3.72\}$ to form a table.
+$$\hat\Phi(t)=\frac{1}{n}\sum_{i=1}^n I(X_i\le t)$$
+where $X_i$ is a random sample from $N(0,1)$, $I(\cdot)$ is the indicator function.
+Then, experiment with the approximation at $n \in \{10^2,10^3,10^4\}$ at $t\in\{0.0,0.67,0.84,1.28,1.65,2.32,2.58,3.09,3.72\}$ to form a table.
 
 
 ## 3  **Table**
@@ -54,8 +56,8 @@ library(callr)
 library(webshot)
 
 kable(p, booktabs=TRUE, caption='(ref:norm)') %>% 
-  kable_styling(bootstrap_options = "striped",full_width = F) %>% 
-  column_spec(1,bold=T)
+ kable_styling(bootstrap_options = "striped",full_width = F) %>% 
+ column_spec(1,bold=T)
 ```
 
 
@@ -64,24 +66,24 @@ kable(p, booktabs=TRUE, caption='(ref:norm)') %>%
 After repeat the experiment 100 times, I draw box plots of the 100 approximation errors at each $t$ using **ggplot2** for each $n$. 
 
 <div align=center>
-![](D:\360Downloads\Git\RMarkdown\boxplot\boxplot1.png)
+![](D:/360Downloads\Git\RMarkdown\boxplot\boxplot1.png)
 
-![](D:\360Downloads\Git\RMarkdown\boxplot\boxplot2.png)
+![](D:/360Downloads\Git\RMarkdown\boxplot\boxplot2.png)
 
-![](D:\360Downloads\Git\RMarkdown\boxplot\boxplot3.png)
+![](D:/360Downloads\Git\RMarkdown\boxplot\boxplot3.png)
 
-![](D:\360Downloads\Git\RMarkdown\boxplot\boxplot4.png)
-
-
-![](D:\360Downloads\Git\RMarkdown\boxplot\boxplot5.png)
+![](D:/360Downloads\Git\RMarkdown\boxplot\boxplot4.png)
 
 
-![](D:\360Downloads\Git\RMarkdown\boxplot\boxplot6.png)
-![](D:\360Downloads\Git\RMarkdown\boxplot\boxplot7.png)
+![](D:/360Downloads\Git\RMarkdown\boxplot\boxplot5.png)
 
-![](D:\360Downloads\Git\RMarkdown\boxplot\boxplot8.png)
 
-![](D:\360Downloads\Git\RMarkdown\boxplot\boxplot9.png)
+![](D:/360Downloads\Git\RMarkdown\boxplot\boxplot6.png)
+![](D:/360Downloads\Git\RMarkdown\boxplot\boxplot7.png)
+
+![](D:/360Downloads\Git\RMarkdown\boxplot\boxplot8.png)
+
+![](D:/360Downloads\Git\RMarkdown\boxplot\boxplot9.png)
 
 
 ## 5  **R Code**
